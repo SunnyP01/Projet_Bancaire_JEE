@@ -1,4 +1,4 @@
-package metier;
+package com.projetBancaireJEE;
 import java.sql.*;
 
 public class Connexion {

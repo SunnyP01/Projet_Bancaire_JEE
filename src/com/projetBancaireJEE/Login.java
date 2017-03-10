@@ -1,4 +1,4 @@
-package com.ludo.myProject;
+package com.projetBancaireJEE;
 
 
 import java.io.IOException;
@@ -18,7 +18,6 @@ import javax.servlet.http.HttpSession;
 import com.mysql.jdbc.PreparedStatement;
 
 import metier.Compte;
-import metier.Connexion;
 import metier.User;
 
 /**

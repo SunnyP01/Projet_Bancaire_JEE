@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.mysql.jdbc.PreparedStatement;
+import com.projetBancaireJEE.Connexion;
 
 public class Transaction {
 	

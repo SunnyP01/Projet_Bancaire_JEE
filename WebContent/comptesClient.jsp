@@ -1,3 +1,4 @@
+<%@page import="com.projetBancaireJEE.*" %>
 <%@page import="metier.Transaction"%>
 <%@page import="metier.Compte"%>
 <%@page import="java.util.Iterator"%>
