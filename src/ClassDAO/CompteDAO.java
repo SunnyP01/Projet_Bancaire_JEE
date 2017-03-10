@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import com.mysql.jdbc.PreparedStatement;
 import com.projetBancaireJEE.Connexion;
 
-import metier.Compte;
+import metier.*;
 
 public class CompteDAO {
 	
@@ -56,7 +56,37 @@ public class CompteDAO {
 			Connexion maConnexion = new Connexion();
 			Connection con = maConnexion.getConnexion();
 		    Statement sta = con.createStatement();
-		    PreparedStatement pr = (PreparedStatement) con.prepareStatement("SELECT * FROM compte WHERE idClient = 1");
+		    PreparedStatement pr = (PreparedStatement) con.prepareStatement("SELECT * FROM compte");
+			ResultSet rs = pr.executeQuery();
+			pr.execute();
+			
+			while(rs.next()){
+				Compte c = new Compte();
+				c.setId(rs.getLong("id"));
+				c.setDateOuverture(rs.getString("dateOuverture"));
+				c.setNom(rs.getString("nom"));
+				c.setSolde(rs.getString("solde"));
+				c.setIdClient(rs.getInt("idClient"));
+				listComptes.add(c);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return listComptes;
+	}
+	
+	public ArrayList<Compte> getAllComptesByUser(int idUser) throws SQLException{
+		ArrayList<Compte> listComptes = new ArrayList<Compte>();
+		try {
+			Connexion maConnexion = new Connexion();
+			Connection con = maConnexion.getConnexion();
+		    Statement sta = con.createStatement();
+		    PreparedStatement pr = (PreparedStatement) con.prepareStatement("SELECT * "
+		    		+ "														FROM compte cpt, client cli"
+		    		+ "														WHERE cpt.idClient = cli.id "
+		    		+ "														AND cli.idUser = "+ idUser);
 			ResultSet rs = pr.executeQuery();
 			pr.execute();
 			

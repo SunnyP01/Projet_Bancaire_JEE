@@ -1,10 +1,11 @@
+<%@page import="java.net.URL"%>
 <%@page import="com.mysql.fabric.Response"%>
 <%@page import="ClassDAO.*"%>
 <%@page import="metier.*"%>
 <%@page import="servletClass.*"%>
 <%@page import="com.projetBancaireJEE.*"%>
-<%@ page import="java.sql.*"%>
-<%@ page import="javax.sql.*"%>
+<%@page import="java.sql.*"%>
+<%@page import="javax.sql.*"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.io.*"%>
 <%@page import="javax.servlet.*"%>
@@ -23,15 +24,23 @@
 		Connexion maConnexion = new Connexion();
 		Connection con = maConnexion.getConnexion();
 		Statement sta = con.createStatement();
-		ResultSet rs=sta.executeQuery("select id from user where email='"+email+"'" + "AND password = '" +pwd+ "'"); 
+		ResultSet rs=sta.executeQuery("select id, nom, prenom from user where email='"+email+"'" + "AND password = '" +pwd+ "'"); 
 		int idUser=0;
+		String nom = null, prenom = null;
 		if(rs.next()) 
 		{
 			idUser = rs.getInt("id");
+			nom = rs.getString("nom");
+			prenom = rs.getString("prenom");
+			
 			ResultSet rs2=sta.executeQuery("select id from client where idUser="+ idUser); 
 			if (rs2.next())
 			{
-				response.sendRedirect("pageClient.jsp");
+				request.setAttribute("idUser", idUser);
+				request.setAttribute("nom", nom);
+				request.setAttribute("prenom", prenom);
+				request.getRequestDispatcher("pageClient.jsp").forward(request, response);
+				//response.sendRedirect("pageClient.jsp");
 			}
 			
 			ResultSet rs3=sta.executeQuery("select id from administrateur where idUser="+ idUser); 
