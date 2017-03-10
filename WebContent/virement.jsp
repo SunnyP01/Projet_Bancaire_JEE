@@ -1,11 +1,10 @@
-<%@page import="com.projetBancaireJEE.*" %>
-<%@page import="metier.Transaction"%>
-<%@page import="metier.Compte"%>
+<%@page import="ClassDAO.*"%>
+<%@page import="metier.*"%>
+<%@page import="servletClass.*"%>
+<%@page import="com.projetBancaireJEE.*"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="servletClass.CompteBeans"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -19,9 +18,9 @@
 	if(request.getAttribute("modele") != null){
 		comptes = (CompteBeans)request.getAttribute("modele");
 	}else{
-		Transaction o = new Transaction();
+		CompteDAO o = new CompteDAO();
 		comptes = new CompteBeans();
-		comptes.setListe(o.getAll());
+		comptes.setListe(o.getAllComptes());
 	}
 
 %>
