@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ClassDAO.CompteDAO;
 import metier.Compte;
 import metier.Transaction;
 
@@ -29,10 +30,10 @@ public class CompteServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Transaction op = new Transaction();
+		CompteDAO op = new CompteDAO();
 		if(req.getParameter("action") != null){
 			try {
-				op.remove(Long.parseLong(req.getParameter("id")));
+				op.deleteCompte(Long.parseLong(req.getParameter("id")));
 			} catch (NumberFormatException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -51,7 +52,7 @@ public class CompteServlet extends HttpServlet {
 			
 			//Traitement
 			try {
-				op.add(c);
+				op.addCompte(c);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -63,7 +64,7 @@ public class CompteServlet extends HttpServlet {
 		}
 		cb = new CompteBeans();
 		try {
-			cb.setListe(op.getAll());
+			cb.setListe(op.getAllComptes());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

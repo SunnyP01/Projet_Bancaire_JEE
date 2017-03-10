@@ -1,4 +1,5 @@
 <%@page import="com.projetBancaireJEE.*" %>
+<%@page import="ClassDAO.*"%>
 <%@page import="metier.Transaction"%>
 <%@page import="metier.Compte"%>
 <%@page import="java.util.Iterator"%>
@@ -18,9 +19,9 @@
 	if(request.getAttribute("modele") != null){
 		comptes = (CompteBeans)request.getAttribute("modele");
 	}else{
-		Transaction o = new Transaction();
+		CompteDAO mesComptes = new CompteDAO();
 		comptes = new CompteBeans();
-		comptes.setListe(o.getAll());
+		comptes.setListe(mesComptes.getAllComptes());
 	}
 
 %>
@@ -46,7 +47,7 @@
 		<td><%=c.getId() %> </td>
 		<td><%=c.getNom() %> </td>
 		<td><%= c.getDateOuverture() %></td>
-		<td><%= c.getSolde() %> euros</td>
+		<td><%= c.getSolde() %> euros</td> 
 		<td><%= c.getIdClient() %></td>
 		<td><form action="prodserv" method="post">
 				<input type="hidden" name="id" value="<%= c.getId() %>">

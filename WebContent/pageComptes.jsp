@@ -1,3 +1,4 @@
+<%@page import="ClassDAO.*"%>
 <%@page import="metier.Transaction"%>
 <%@page import="metier.Compte"%>
 <%@page import="java.util.Iterator"%>
@@ -17,9 +18,9 @@
 	if(request.getAttribute("modele") != null){
 		comptes = (CompteBeans)request.getAttribute("modele");
 	}else{
-		Transaction o = new Transaction();
+		CompteDAO mesComptes = new CompteDAO();
 		comptes = new CompteBeans();
-		comptes.setListe(o.getAll());
+		comptes.setListe(mesComptes.getAllComptes());
 	}
 
 %>

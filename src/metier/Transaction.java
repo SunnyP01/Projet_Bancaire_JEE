@@ -13,82 +13,30 @@ import com.projetBancaireJEE.Connexion;
 
 public class Transaction {
 	
-	private ArrayList<Compte> comptes = new ArrayList<Compte>();
+	private int id;
+	private Compte compteCred;
+	private Compte compteDeb;
+	private float montant;
 	
-	public ArrayList<Compte> getComptes(){
-		return comptes;
+	//Constructeur
+	public Transaction (int id,Compte compteCred,Compte compteDeb, float montant)
+	{
+		this.id = id;
+		this.compteCred = compteCred;
+		this.compteDeb = compteDeb;
+		this.montant = montant;
 	}
 	
-	public void setComptes(ArrayList<Compte> comptes){
-		this.comptes = comptes;
-	}
+	//Méthodes GET
+	public int getId (){return this.id;}
+	public Compte getCompteCred(){return this.compteCred;}
+	public Compte getCompteDeb(){return this.compteDeb;}
+	public float getMontant(){return this.montant;}
 	
-	public void add(Compte c) throws SQLException{
-		try {
-			Connexion maConnexion = new Connexion();
-			Connection con = maConnexion.getConnexion();
-		    Statement sta = con.createStatement();
-		    PreparedStatement pr = (PreparedStatement) con.prepareStatement("INSERT INTO compte VALUE(NULL,?,?,?,?)");
-			pr.setString(1, c.getNom());
-			pr.setString(2, c.getDateOuverture());
-			pr.setString(3, c.getSolde());
-			pr.setInt(4, c.getIdClient());
-			pr.execute();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		comptes.add(c);
-	}
-	
-	public void remove(Long id) throws SQLException{
-		/*for(Compte c : comptes){
-			if(c.getId()==id){
-				comptes.remove(c);
-				break;
-			}
-		}
-		System.out.println("id supp " + id);*/
+	//Méthode SET
+	public void setId(int id){this.id = id;}
+	public void setCompteCred(Compte compteCred){this.compteCred = compteCred;}
+	public void setCompteDeb(Compte compteDeb){this.compteDeb = compteDeb;}
+	public void setMontant (float montant){this.montant = montant;}
 		
-		try {
-			Connexion maConnexion = new Connexion();
-			Connection con = maConnexion.getConnexion();
-		    Statement sta = con.createStatement();
-		    PreparedStatement pr = (PreparedStatement) con.prepareStatement("DELETE FROM compte WHERE id = ?");
-			pr.setLong(1, id);
-			
-			pr.execute();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	public ArrayList<Compte> getAll() throws SQLException{
-		ArrayList<Compte> listComptes = new ArrayList<Compte>();
-		try {
-			Connexion maConnexion = new Connexion();
-			Connection con = maConnexion.getConnexion();
-		    Statement sta = con.createStatement();
-		    PreparedStatement pr = (PreparedStatement) con.prepareStatement("SELECT * FROM compte WHERE idClient = 1");
-			ResultSet rs = pr.executeQuery();
-			pr.execute();
-			
-			while(rs.next()){
-				Compte c = new Compte();
-				c.setId(rs.getLong("id"));
-				c.setDateOuverture(rs.getString("dateOuverture"));
-				c.setNom(rs.getString("nom"));
-				c.setSolde(rs.getString("solde"));
-				c.setIdClient(rs.getInt("idClient"));
-				listComptes.add(c);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return listComptes;
-	}
-
 }
