@@ -32,16 +32,17 @@
 			clients.setListe(o2.getAllClient());
 		}
 	    
-	    ClientDAO monClient = new ClientDAO();
-	    monClient.addConseiller(1, 1);
+	    //ClientDAO monClient = new ClientDAO();
+	    //monClient.addConseiller(1, 1);
+	   
 	    
 	    %>
 	    
-	    <form action="affectationClientAdmin.jsp" method="post">
+	    <form action="prodServ2" method="post">
 <table border = "1" width="50%">
 	<tr>
 			<td> Conseiller </td>
-			<td><select name="conseiller">
+			<td><select name="conseiller" value = 1>
 		<%
 			Iterator<Conseiller> list = conseillers.getListe().iterator();
 			while(list.hasNext()){
@@ -60,7 +61,7 @@
 			<td> Client </td>
 			<td>
 			
-					<select name="client">
+					<select name="client" value=1>
 		<%
 			Iterator<Client> list2 = clients.getListe().iterator();
 			while(list2.hasNext()){
@@ -76,7 +77,7 @@
 		</tr>
 	
 		<tr> 
-			<td><input type="submit" value="valider"></td> 
+			<td><input type="submit" name="action" value="valider"></td> 
 		</tr>
 </table>
 </form>
