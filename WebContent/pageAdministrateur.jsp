@@ -12,5 +12,13 @@
     </head>
     <body>
 	    <h1>Page Administrateur</h1>
+	    
+	    <ul>
+	    	<a href="affectationClientAdmin.jsp"><li>Affectation d'un conseiller à un client</li></a>
+	    	<a href="compteClientAdmin"><li>Consulter comptes clients</li></a>
+	    </ul>
+	    
+	  
+	    
     </body>
 </html>

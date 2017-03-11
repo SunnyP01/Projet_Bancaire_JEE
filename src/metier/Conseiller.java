@@ -12,6 +12,13 @@ public class Conseiller extends User {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+	
+	public Conseiller(String email, String nom, String prenom, String password) {
+		super(email, nom, prenom, password);
+	}
+
+
 	public ArrayList<Client> getClients()
 	{
 		return this.mesClients;
