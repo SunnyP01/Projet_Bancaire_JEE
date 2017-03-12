@@ -13,10 +13,15 @@
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>loginjsp</title>
 </head>
 <body>
+<c:if test="${!empty sessionScope.sessionUtilisateur}">
+        <%-- Si l'utilisateur existe en session, alors on affiche son adresse email. --%>
+        Vous êtes connecté(e) avec l'adresse : ${sessionScope.sessionUtilisateur.email}
+	    </c:if>
+		
 	<%
 		String email=request.getParameter("email"); 
 		session.putValue("userid",email); 
@@ -40,7 +45,6 @@
 				request.setAttribute("nom", nom);
 				request.setAttribute("prenom", prenom);
 				request.getRequestDispatcher("pageClient.jsp").forward(request, response);
-				//response.sendRedirect("pageClient.jsp");
 			}
 			
 			ResultSet rs3=sta.executeQuery("select id from administrateur where idUser="+ idUser); 

@@ -4,8 +4,14 @@ public class User {
 	
 	private String email, nom, prenom, password;
 	
+	public User() {
+		email = null;
+		nom = null;
+		prenom = null;
+		password = null;
+	}
+	
 	public User(String email, String nom, String prenom, String password) {
-		super();
 		this.email = email;
 		this.nom = nom;
 		this.prenom = prenom;

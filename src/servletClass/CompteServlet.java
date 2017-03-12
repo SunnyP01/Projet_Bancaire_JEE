@@ -16,6 +16,9 @@ import ClassDAO.CompteDAO;
 import metier.Compte;
 import metier.Transaction;
 
+import javax.servlet.annotation.WebServlet;
+
+
 public class CompteServlet extends HttpServlet {
 	CompteBeans cb;
 	/*
@@ -31,6 +34,7 @@ public class CompteServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		CompteDAO op = new CompteDAO();
+		
 		if(req.getParameter("action") != null){
 			try {
 				op.deleteCompte(Long.parseLong(req.getParameter("id")));

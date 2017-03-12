@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <display-name>BancaireApp</display-name>
-  
+<session-config> 
+		<session-timeout>1</session-timeout>
+	</session-config>
   <servlet>
-  	<servlet-name>sp</servlet-name>
-  	<servlet-class>servletClass.CompteServlet</servlet-class>
+    <servlet-name>sp</servlet-name>
+    <servlet-class>servletClass.CompteServlet</servlet-class>
   </servlet>
   
-  <servlet-mapping>
-	  <servlet-name>sp</servlet-name>
-	  <url-pattern>/prodserv</url-pattern>
+<servlet-mapping>
+    <servlet-name>sp</servlet-name>
+    <url-pattern>/prodserv</url-pattern>
   </servlet-mapping>
-  
+
+    <servlet>
+        <servlet-name>Virement</servlet-name>
+        <servlet-class>servletClass.Virement</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Virement</servlet-name>
+        <url-pattern>/Virement</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>
