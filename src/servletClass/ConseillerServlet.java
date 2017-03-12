@@ -35,7 +35,7 @@ public class ConseillerServlet extends HttpServlet {
 			try {
 				int client = Integer.parseInt(req.getParameter("client"));
 				int conseiller = Integer.parseInt(req.getParameter("conseiller"));
-				cd.addConseiller(1,1);
+//				cd.addConseiller(1,1);
 			} catch (NumberFormatException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

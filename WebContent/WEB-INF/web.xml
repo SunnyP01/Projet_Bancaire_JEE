@@ -13,7 +13,6 @@
     <servlet-name>sp</servlet-name>
     <url-pattern>/prodserv</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
 
     <servlet>
         <servlet-name>Virement</servlet-name>
@@ -25,10 +24,6 @@
         <url-pattern>/Virement</url-pattern>
     </servlet-mapping>
 
-
-</web-app>
-=======
-  
   <servlet>
   	<servlet-name>sp2</servlet-name>
   	<servlet-class>servletClass.ConseillerServlet</servlet-class>
@@ -41,4 +36,3 @@
   
   
 </web-app>
->>>>>>> 6a1431d0b2f85517459287d11fbd6bf915a8808c
