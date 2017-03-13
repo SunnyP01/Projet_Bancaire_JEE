@@ -13,10 +13,71 @@
     <body>
 	    <h1>Page Administrateur</h1>
 	    
-	    <ul>
-	    	<a href="affectationClientAdmin.jsp"><li>Affectation d'un conseiller à un client</li></a>
-	    	<a href="compteClientAdmin"><li>Consulter comptes clients</li></a>
-	    </ul>
+	    <h3>Affectation d'un conseiller à un client</h1>
+	
+	  <%
+	  
+	  ConseillerBeans conseillers;
+	  ClientBeans clients;
+		if(request.getAttribute("modele") != null){
+			conseillers = (ConseillerBeans)request.getAttribute("modele");
+			clients = (ClientBeans)request.getAttribute("modele");
+		}else{
+			ConseillerDAO o = new ConseillerDAO();
+			conseillers = new ConseillerBeans();
+			conseillers.setListe(o.getAllConseillers());
+			
+			ClientDAO o2 = new ClientDAO();
+			clients = new ClientBeans();
+			clients.setListe(o2.getAllClient());
+		}
+	   
+	    
+	    %>
+	    
+	    <form action="AffectationClient" method="post">
+<table border = "1" width="50%">
+	<tr>
+			<td> Conseiller </td>
+			<td><select id="idConseiller" name = "idConseiller">
+		<%
+			Iterator<Conseiller> list = conseillers.getListe().iterator();
+			while(list.hasNext()){
+				Conseiller c = list.next();
+		%>
+		
+			<option value=<%= c.getId() %>> <%= c.getPrenom() + " " + c.getNom() %> </option>
+		
+		<%
+			}
+		%>
+		</select>
+			</td>
+		</tr>
+		<tr>
+			<td> Client </td>
+			<td>
+			
+					<select id="idClient" name="idClient">
+		<%
+			Iterator<Client> list2 = clients.getListe().iterator();
+			while(list2.hasNext()){
+				Client c = list2.next();
+		%>
+			<option value = <%= c.getId() %>> <%=c.getPrenom() + " " + c.getNom() %> </option>
+		<%
+			}
+		%>
+		</select>
+			
+			</td>
+		</tr>
+	
+		<tr> 
+			<td><input type="submit" name="action" value="valider"></td> 
+		</tr>
+</table>
+</form>
 	    
 	  
 	    

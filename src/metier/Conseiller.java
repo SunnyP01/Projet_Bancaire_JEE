@@ -12,16 +12,20 @@ public class Conseiller extends User {
 		mesClients = null;
 	}
 	
-	public Conseiller(String email, String nom, String prenom, String password, ArrayList<Client> mesClients) {
-		super(email, nom, prenom, password);
+	public int getIdConseiller() {
+		return idConseiller;
+	}
+
+	public void setIdConseiller(int idConseiller) {
+		this.idConseiller = idConseiller;
+	}
+
+	public Conseiller(int id, String email, String nom, String prenom, String password, ArrayList<Client> mesClients) {
+		super(id, email, nom, prenom, password);
 		this.mesClients = mesClients;
 		// TODO Auto-generated constructor stub
 	}
-	
-		
-	public Conseiller(String email, String nom, String prenom, String password) {
-		super(email, nom, prenom, password);
-	}
+
 
 
 	public ArrayList<Client> getClients()

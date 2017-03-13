@@ -29,7 +29,7 @@ public class ConseillerDAO {
 			pr.execute();
 			
 			while(rs.next()){
-				Conseiller c = new Conseiller(rs.getString("email"),rs.getString("nom"),rs.getString("prenom"),rs.getString("password"));
+				Conseiller c = new Conseiller(rs.getInt("id"),rs.getString("email"),rs.getString("nom"),rs.getString("prenom"),rs.getString("password"), null);
 				//c.setId(rs.getLong("id"));
 				//c.setId(rs.getInt("idUser"));
 				listConseillers.add(c);

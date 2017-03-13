@@ -18,6 +18,16 @@
         <servlet-name>Virement</servlet-name>
         <servlet-class>servletClass.Virement</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>AffectationClient</servlet-name>
+        <servlet-class>servletClass.AffectationClient</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>AffectationClient</servlet-name>
+        <url-pattern>/AffectationClient</url-pattern>
+    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>Virement</servlet-name>

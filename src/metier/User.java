@@ -3,20 +3,38 @@ package metier;
 public class User {
 	
 	private String email, nom, prenom, password;
+	private int id;
 	
 	public User() {
+		id = 0;
 		email = null;
 		nom = null;
 		prenom = null;
 		password = null;
 	}
 	
-	public User(String email, String nom, String prenom, String password) {
+	public User(int id, String email, String nom, String prenom, String password) {
+		this.id = id;
 		this.email = email;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.password = password;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	/*public User(String email, String nom, String prenom, String password) {
+		this.email = email;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.password = password;
+	}*/
 
 	public String getEmail() {
 		return email;

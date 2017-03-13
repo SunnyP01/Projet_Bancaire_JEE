@@ -113,7 +113,7 @@
 			</tr>
 			<tr>
 				<td> Montant (en euros) </td>
-				<td> <input type="text" id="montant" name="montant"/></td>
+				<td> <input type="text" id="montant" name="montant" required/></td>
 			</tr>
 		
 			<tr> 
