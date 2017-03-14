@@ -46,6 +46,6 @@ public class AffectationClient extends HttpServlet {
         	
         }
         
-   		//req.getRequestDispatcher("affectationClientAdmin.jsp").forward(req, resp);
+   		req.getRequestDispatcher("affectationClientAdmin.jsp").forward(req, resp);
 	}
 }

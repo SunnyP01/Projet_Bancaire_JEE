@@ -152,6 +152,37 @@
 	</table>
 	</form>
 	
+	<h2> Gérer mon espace client </h2>
+	
+	<h3>Changement de Mail</h3>
+	<form action = "ClientServlet" method = "post">
+	<table border="1" , width="60%">
+		<tr>
+			<th>Nouveau Mail</th>
+		</tr>
+		<tr>
+			<td><input type="text" id="email" name="email" placeholder="Nouveau Mail"/></td>
+			 <input type="hidden" name="idUser" value="<%=(int)request.getAttribute("idUser")%>">
+			<td><input type="submit" id="valider" value="Valider"/></td>
+		</tr>
+	</table>
+	</form>
+	
+	<h3>Modifier Mot de passe</h3>
+	<form action = "ClientServlet" method = "post">
+	<table border="1" , width="60%">
+		<tr>
+			<th>Ancien Mot de Passe</th>
+			<th>Nouveau Mot de Passe</th>
+		</tr>
+		<tr>
+			<td><input type="password" id="oldPasswd" name="oldPasswd" placeholder="Ancien Mot de passe"/></td>
+			<td><input type="password" id="newPasswd" name="newPasswd" placeholder="Nouveau Mot de passe"/></td>
+			<input type="hidden" name="idUser" value="<%=(int)request.getAttribute("idUser")%>">
+			<td><input type="submit" id="valider" value="Valider"/></td>
+		</tr>
+	</table>
+	</form>
 		
 </body>
 </html>
