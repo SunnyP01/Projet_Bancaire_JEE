@@ -15,8 +15,21 @@
 <head>
 <meta charset="utf-8" />
 <title>Page Client</title>
+        <link rel="stylesheet" href="./css/style.css" type="text/css" />
 </head>
 <body>
+
+<div id="page">
+		<div id="logo">
+			<h1>Page Client</h1>
+		</div>
+		<div id="nav">
+			<ul>
+				<li><a>Acceuil Client</a></li>
+				<li><a href="./">Déconnexion</a></li>
+			</ul>	
+		</div>
+		<div id="contentClient">
 		<%
 		CompteBeans comptes;
 		if (request.getAttribute("modele") != null) {
@@ -41,6 +54,7 @@
 
 	<h1>Bienvenue ${prenom} ${nom} </h1>
 	<h3>Pour toute demande vous pouvez contacter votre conseiller : <%=leConseiller.getPrenom()%> <%=leConseiller.getNom()%> <% } %> </h3>
+	<br><br>
 	<h2>Mes Comptes :</h2>
 
 	<table border="1" , width="60%">
@@ -68,7 +82,8 @@
 
 		</tr>
 	</table>
-	
+	<br>
+	<br>
 	<h2> Faire un virement </h2>
 	<form action="Virement" method="post">
 	<table border = "1" width="50%">
@@ -122,6 +137,8 @@
 	</table>
 	</form>
 	
+	<br>
+	<br>
 	<h2> Consulter l'historique de mes comptes </h2>
 	<form action="pageHistorique.jsp" method="post">
 	<table border = "1" width="50%">
@@ -152,6 +169,8 @@
 	</table>
 	</form>
 	
+	<br>
+	<br>
 	<h2> Gérer mon espace client </h2>
 	
 	<h3>Changement de Mail</h3>
@@ -161,7 +180,7 @@
 			<th>Nouveau Mail</th>
 		</tr>
 		<tr>
-			<td><input type="text" id="email" name="email" placeholder="Nouveau Mail"/></td>
+			<td><input type="text" id="email" name="email" placeholder="Nouveau Mail" required/></td>
 			 <input type="hidden" name="idUser" value="<%=(int)request.getAttribute("idUser")%>">
 			<td><input type="submit" id="valider" value="Valider"/></td>
 		</tr>
@@ -176,13 +195,19 @@
 			<th>Nouveau Mot de Passe</th>
 		</tr>
 		<tr>
-			<td><input type="password" id="oldPasswd" name="oldPasswd" placeholder="Ancien Mot de passe"/></td>
-			<td><input type="password" id="newPasswd" name="newPasswd" placeholder="Nouveau Mot de passe"/></td>
+			<td><input type="password" id="oldPasswd" name="oldPasswd" placeholder="Ancien Mot de passe" required/></td>
+			<td><input type="password" id="newPasswd" name="newPasswd" placeholder="Nouveau Mot de passe" required/></td>
 			<input type="hidden" name="idUser" value="<%=(int)request.getAttribute("idUser")%>">
 			<td><input type="submit" id="valider" value="Valider"/></td>
 		</tr>
 	</table>
 	</form>
-		
+		</div>
+		<div id="footer">
+			<p>
+				Website developed by Sunny PURSEED & Ludovic TRAPEAU</a>
+			</p>
+		</div>
+	</div>
 </body>
 </html>

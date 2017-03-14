@@ -8,12 +8,23 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <link rel="stylesheet" href="./css/style.css" type="text/css" />
         <title>Admin page</title>
     </head>
     <body>
-	    <h1>Page Administrateur</h1>
+	    <div id="page">
+		<div id="logo">
+			<h1>Page Administrateur</h1>
+		</div>
+		<div id="nav">
+			<ul>
+				<li><a href="pageAdministrateur.jsp">Acceuil Administrateur</a></li>
+				<li><a href="./">Déconnexion</a></li>
+			</ul>	
+		</div>
+		<div id="content">
 	    
-	    <h3>Affectation d'un conseiller à un client</h1>
+	    <h2>Affectation d'un conseiller à un client</h2>
 	
 	  <%
 	  
@@ -113,7 +124,7 @@
 		%>
 		</select>
 			</td>
-		<td><input type="text" id="email" name="email" placeholder="Nouveau Mail"/></td>
+		<td><input type="text" id="email" name="email" placeholder="Nouveau Mail" required/></td>
 		<td><input type="submit" id="valider" value="Valider"/></td>
 		</tr>
 	</table>
@@ -141,12 +152,20 @@
 		%>
 		</select>
 			</td>
-			<td><input type="password" id="newPasswd" name="newPasswd" placeholder="Nouveau Mot de passe"/></td>
+			<td><input type="password" id="newPasswd" name="newPasswd" placeholder="Nouveau Mot de passe" required/></td>
 			
 		<td><input type="submit" id="valider" value="Valider"/></td>
 		</tr>
 	</table>
 	</form>
+	
+	</div>
+		<div id="footer">
+			<p>
+				Website developed by Sunny PURSEED & Ludovic TRAPEAU</a>
+			</p>
+		</div>
+	</div>
 		 
     </body>
 </html>

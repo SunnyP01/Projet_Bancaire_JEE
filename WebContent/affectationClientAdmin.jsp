@@ -15,7 +15,7 @@
 	    
 	<h2>Ce client a bien été affecté à ce conseiller</h2>
 	
-	<a href="./pageAdministrateur.jsp">Retour à ma page Client</a>
+	<a href="./pageAdministrateur.jsp">Retour à ma page Administrateur</a>
 </form>
 
 </body>
