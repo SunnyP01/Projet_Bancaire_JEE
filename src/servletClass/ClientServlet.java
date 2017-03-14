@@ -29,7 +29,7 @@ public class ClientServlet extends HttpServlet {
 				UserDAO nvxClient = new UserDAO();
 				nvxClient.updateEmailClient(Integer.parseInt(req.getParameter("idClient")), email);
 				System.out.println("Votre nouveau mail est : "+req.getParameter("email"));
-				req.getRequestDispatcher(url).forward(req, resp);
+				req.getRequestDispatcher("./").forward(req, resp);
 				}
 				catch (Exception e) {
 					// TODO: handle exception
@@ -69,7 +69,7 @@ public class ClientServlet extends HttpServlet {
 				try {
 					UserDAO nvxUser = new UserDAO();
 					nvxUser.updateMDPClient(Integer.parseInt(req.getParameter("idClient")), newPasswd);
-					req.getRequestDispatcher(url).forward(req, resp);
+					req.getRequestDispatcher("./").forward(req, resp);
 					}
 					catch (Exception e) {
 						// TODO: handle exception
