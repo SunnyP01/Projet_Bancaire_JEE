@@ -10,55 +10,77 @@
 <%@page import="java.util.Iterator"%>
 <%@page import="java.io.*"%>
 <%@page import="javax.servlet.*"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="./css/style.css" type="text/css" />
 <title>Historique de compte</title>
 </head>
 <body>
-	
 
-	<%  int idCompte;
-		ArrayList<Transaction> mesTransactions = new ArrayList<Transaction>(); 
-		TransactionDAO transactionDAO = new TransactionDAO();
-		idCompte = Integer.parseInt(request.getParameter("idCompte"));
-		mesTransactions = transactionDAO.getTransactionByCompte(idCompte);
-		System.out.println("id du compte selectionner dans form : "+idCompte);
-	%>
-	<h1>Historique du compte </h1>
-	
-	<table border="1" , width="60%">
-		<tr>
-			<th>idTransaction</th>
-			<th>Nom du compte créditeur</th>
-			<th>Nom du compte débiteur</th>
-			<th>Montant de la transaction</th>
-			<th>Date de la transaction</th>
-		</tr>
-		<%
-			Iterator<Transaction> list = mesTransactions.iterator();
-			while (list.hasNext()) {
-				Transaction tr = list.next();
-		%>
+	<div id="page">
+		<div id="logo">
+			<h1>Page Historique</h1>
+		</div>
+		<div id="nav">
+			<ul>
+				<li><a href="./">Déconnexion</a></li>
+			</ul>
+		</div>
+		<div id="content">
 
-		<tr>
-			<td><%=tr.getId()%></td>
-			<td><%=tr.getCompteCred().getNom()%></td>
-			<td><%=tr.getCompteDeb().getNom()%></td>
-			<td><%=tr.getMontant()%> euros</td>
-			<td><%=tr.getDate()%></td>
-		</tr>
 
-		<%
-			}
-		%>
-		<tr>
+			<%
+				int idCompte;
+				ArrayList<Transaction> mesTransactions = new ArrayList<Transaction>();
+				TransactionDAO transactionDAO = new TransactionDAO();
+				idCompte = Integer.parseInt(request.getParameter("idCompte"));
+				mesTransactions = transactionDAO.getTransactionByCompte(idCompte);
+				System.out.println("id du compte selectionner dans form : " + idCompte);
+			%>
+			<h1>Historique du compte</h1>
 
-		</tr>
-	</table>
-	
-	
+			<table border="1" , width="60%">
+				<tr>
+					<th>idTransaction</th>
+					<th>Nom du compte créditeur</th>
+					<th>Nom du compte débiteur</th>
+					<th>Montant de la transaction</th>
+					<th>Date de la transaction</th>
+				</tr>
+				<%
+					Iterator<Transaction> list = mesTransactions.iterator();
+					while (list.hasNext()) {
+						Transaction tr = list.next();
+				%>
+
+				<tr>
+					<td><%=tr.getId()%></td>
+					<td><%=tr.getCompteCred().getNom()%></td>
+					<td><%=tr.getCompteDeb().getNom()%></td>
+					<td><%=tr.getMontant()%> euros</td>
+					<td><%=tr.getDate()%></td>
+				</tr>
+
+				<%
+					}
+				%>
+				<tr>
+
+				</tr>
+			</table>
+
+		</div>
+		<div id="footer">
+			<p>
+				Website developed by Sunny PURSEED & Ludovic TRAPEAU</a>
+			</p>
+		</div>
+	</div>
+
+
 </body>
 </html>

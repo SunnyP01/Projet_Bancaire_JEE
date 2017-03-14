@@ -3,15 +3,15 @@ package metier;
 import java.util.ArrayList;
 
 public class Conseiller extends User {
-	
+
 	private ArrayList<Client> mesClients = new ArrayList<Client>();
 	private int idConseiller;
-	
+
 	public Conseiller() {
 		super();
 		mesClients = null;
 	}
-	
+
 	public int getIdConseiller() {
 		return idConseiller;
 	}
@@ -26,16 +26,12 @@ public class Conseiller extends User {
 		// TODO Auto-generated constructor stub
 	}
 
-
-
-	public ArrayList<Client> getClients()
-	{
+	public ArrayList<Client> getClients() {
 		return this.mesClients;
 	}
-	
-	public void setClient (Client monClient)
-	{
+
+	public void setClient(Client monClient) {
 		this.mesClients.add(monClient);
 	}
-	
+
 }

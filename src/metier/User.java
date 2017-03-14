@@ -1,10 +1,10 @@
 package metier;
 
 public class User {
-	
+
 	private String email, nom, prenom, password;
 	private int id;
-	
+
 	public User() {
 		id = 0;
 		email = null;
@@ -12,7 +12,7 @@ public class User {
 		prenom = null;
 		password = null;
 	}
-	
+
 	public User(int id, String email, String nom, String prenom, String password) {
 		this.id = id;
 		this.email = email;
@@ -29,12 +29,11 @@ public class User {
 		this.id = id;
 	}
 
-	/*public User(String email, String nom, String prenom, String password) {
-		this.email = email;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.password = password;
-	}*/
+	/*
+	 * public User(String email, String nom, String prenom, String password) {
+	 * this.email = email; this.nom = nom; this.prenom = prenom; this.password =
+	 * password; }
+	 */
 
 	public String getEmail() {
 		return email;

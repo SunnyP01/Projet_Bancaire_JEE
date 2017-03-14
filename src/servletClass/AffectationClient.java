@@ -21,31 +21,26 @@ import javax.sql.*;
 import java.util.Iterator;
 import java.io.*;
 
-
-
-
 public class AffectationClient extends HttpServlet {
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-	    ClientDAO monClient = new ClientDAO();
+		ClientDAO monClient = new ClientDAO();
 		String idConseiller = req.getParameter("idConseiller");
 		String idClient = req.getParameter("idClient");
-		
+
 		System.out.println("On a " + idClient + " et " + idConseiller);
-		
-        try {
-        	
-        	
-    	    monClient.addConseiller(Integer.parseInt(idClient), Integer.parseInt(idConseiller));
-            
-        	
-        } catch (Exception e) {
-            /* Gérer les erreurs de validation ici. */
-        	
-        }
-        
-   		req.getRequestDispatcher("affectationClientAdmin.jsp").forward(req, resp);
+
+		try {
+
+			monClient.addConseiller(Integer.parseInt(idClient), Integer.parseInt(idConseiller));
+
+		} catch (Exception e) {
+			/* Gérer les erreurs de validation ici. */
+
+		}
+
+		req.getRequestDispatcher("affectationClientAdmin.jsp").forward(req, resp);
 	}
 }

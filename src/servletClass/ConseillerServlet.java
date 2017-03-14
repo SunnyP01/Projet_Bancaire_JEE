@@ -19,32 +19,30 @@ import metier.Transaction;
 public class ConseillerServlet extends HttpServlet {
 	ClientBeans cb;
 	/*
-	private Operation op;
-	
-	
-	@Override
-	public void init() throws ServletException {
-		op = new Operation();
-	}
-	*/
-	
+	 * private Operation op;
+	 * 
+	 * 
+	 * @Override public void init() throws ServletException { op = new
+	 * Operation(); }
+	 */
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ClientDAO cd = new ClientDAO();
-		if(req.getParameter("action") != null){
+		if (req.getParameter("action") != null) {
 			try {
 				int client = Integer.parseInt(req.getParameter("client"));
 				int conseiller = Integer.parseInt(req.getParameter("conseiller"));
-//				cd.addConseiller(1,1);
+				// cd.addConseiller(1,1);
 			} catch (NumberFormatException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 		}
-		
+
 		cb = new ClientBeans();
-		
+
 		req.setAttribute("modele", cb);
 		req.getRequestDispatcher("affectationClientAdmin.jsp").forward(req, resp);
 	}

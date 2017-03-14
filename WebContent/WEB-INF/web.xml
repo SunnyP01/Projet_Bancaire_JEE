@@ -1,60 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
-  <display-name>BancaireApp</display-name>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+	<display-name>BancaireApp</display-name>
 
-<session-config> 
+	<session-config>
 		<session-timeout>1</session-timeout>
-</session-config>
+	</session-config>
 
-  <servlet>
-    <servlet-name>sp</servlet-name>
-    <servlet-class>servletClass.CompteServlet</servlet-class>
-  </servlet>
-  
-<servlet-mapping>
-    <servlet-name>sp</servlet-name>
-    <url-pattern>/prodserv</url-pattern>
-  </servlet-mapping>
+	<servlet>
+		<servlet-name>sp</servlet-name>
+		<servlet-class>servletClass.CompteServlet</servlet-class>
+	</servlet>
 
-    <servlet>
-        <servlet-name>Virement</servlet-name>
-        <servlet-class>servletClass.Virement</servlet-class>
-    </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>Virement</servlet-name>
-        <url-pattern>/Virement</url-pattern>
-    </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>sp</servlet-name>
+		<url-pattern>/prodserv</url-pattern>
+	</servlet-mapping>
 
-    <servlet>
-        <servlet-name>AffectationClient</servlet-name>
-        <servlet-class>servletClass.AffectationClient</servlet-class>
-    </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>AffectationClient</servlet-name>
-        <url-pattern>/AffectationClient</url-pattern>
-    </servlet-mapping>
+	<servlet>
+		<servlet-name>Virement</servlet-name>
+		<servlet-class>servletClass.Virement</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Virement</servlet-name>
+		<url-pattern>/Virement</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AffectationClient</servlet-name>
+		<servlet-class>servletClass.AffectationClient</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AffectationClient</servlet-name>
+		<url-pattern>/AffectationClient</url-pattern>
+	</servlet-mapping>
 
 
-  <servlet>
-  	<servlet-name>sp2</servlet-name>
-  	<servlet-class>servletClass.ConseillerServlet</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-	  <servlet-name>sp2</servlet-name>
-	  <url-pattern>/prodserv2</url-pattern>
-  </servlet-mapping>
-    
-  <servlet>
-    <servlet-name>ClientServlet</servlet-name>
-    <servlet-class>servletClass.ClientServlet</servlet-class>
-  </servlet>
-  
-<servlet-mapping>
-    <servlet-name>ClientServlet</servlet-name>
-    <url-pattern>/ClientServlet</url-pattern>
-  </servlet-mapping>  
+	<servlet>
+		<servlet-name>sp2</servlet-name>
+		<servlet-class>servletClass.ConseillerServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>sp2</servlet-name>
+		<url-pattern>/prodserv2</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ClientServlet</servlet-name>
+		<servlet-class>servletClass.ClientServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ClientServlet</servlet-name>
+		<url-pattern>/ClientServlet</url-pattern>
+	</servlet-mapping>
 
 </web-app>
