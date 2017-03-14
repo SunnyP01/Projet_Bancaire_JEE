@@ -77,27 +77,32 @@ public class ClientDAO {
 		}
 	}
 
-	public ArrayList<Client> getAllClientByConseiller(int idConseiller) throws SQLException {
+	public ArrayList<Client> getAllClientByConseiller(int idUser) throws SQLException {
 		ArrayList<Client> listClients = new ArrayList<Client>();
+		int idConseiller;
 		try {
 			Connexion maConnexion = new Connexion();
 			Connection con = maConnexion.getConnexion();
 			Statement sta = con.createStatement();
-			PreparedStatement pr = (PreparedStatement) con.prepareStatement("SELECT * FROM client c, user u "
+			PreparedStatement pr = (PreparedStatement) con
+					.prepareStatement("Select id from conseiller where idUser = " + idUser);
+			ResultSet rs = pr.executeQuery();
+			if (rs.next()) {
+				idConseiller = rs.getInt("id");
+				pr = (PreparedStatement) con.prepareStatement("SELECT * FROM client c, user u "
 					+ "WHERE c.idUser = u.id" + " AND c.idConseiller = " + idConseiller);
 
-			System.out.println("SELECT * FROM client c, user u " + "WHERE c.idUser = u.id" + " AND c.idConseiller = "
+				System.out.println("SELECT * FROM client c, user u " + "WHERE c.idUser = u.id" + " AND c.idConseiller = "
 					+ idConseiller);
-
-			ResultSet rs = pr.executeQuery();
-			pr.execute();
-
-			while (rs.next()) {
-				Client c = new Client(rs.getInt("id"), rs.getString("email"), rs.getString("nom"),
-						rs.getString("prenom"), rs.getString("password"), 0);
-				// c.setId(rs.getLong("id"));
-				// c.setId(rs.getInt("idUser"));
-				listClients.add(c);
+				rs = pr.executeQuery();
+				pr.execute();
+				while (rs.next()) {
+					Client c = new Client(rs.getInt("id"), rs.getString("email"), rs.getString("nom"),
+							rs.getString("prenom"), rs.getString("password"), 0);
+					// c.setId(rs.getLong("id"));
+					// c.setId(rs.getInt("idUser"));
+					listClients.add(c);
+				}
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

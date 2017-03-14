@@ -54,7 +54,8 @@
 
 			ResultSet rs4 = sta.executeQuery("select id from conseiller where idUser=" + idUser);
 			if (rs4.next()) {
-				response.sendRedirect("pageConseiller.jsp");
+				request.setAttribute("idUser", idUser);
+				request.getRequestDispatcher("pageConseiller.jsp").forward(request, response);
 			}
 		} else
 			out.println("Email ou mot de passe incorrect");

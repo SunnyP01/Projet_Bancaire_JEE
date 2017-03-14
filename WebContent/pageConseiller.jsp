@@ -38,7 +38,7 @@
 
 					ClientDAO o2 = new ClientDAO();
 					clients = new ClientBeans();
-					clients.setListe(o2.getAllClientByConseiller(2));
+					clients.setListe(o2.getAllClientByConseiller((int) request.getAttribute("idUser")));
 
 				}
 			%>
